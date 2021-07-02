@@ -157,30 +157,7 @@ class PickerDateFragment: BaseFragment<PickerDateViewModel, FragmentPickerDateBi
         private var selectedDate: LocalDate? = null
 
         init {
-            textView.setOnClickListener {
-                if (day.owner == DayOwner.THIS_MONTH) {
-                    // Keep a reference to any previous selection
-                    // in case we overwrite it and need to reload it.
-                    val currentSelection = selectedDate
-                    if (currentSelection == localDateToLocalDate(day.date)) {
-                        // If the user clicks the same date, clear selection.
-                        selectedDate = null
-                        // Reload this date so the dayBinder is called
-                        // and we can REMOVE the selection background.
-                        binding.calendarView.notifyDateChanged(currentSelection)
-                    } else {
-                        selectedDate = day.date
-                        // Reload the newly selected date so the dayBinder is
-                        // called and we can ADD the selection background.
-                        calendarView.notifyDateChanged(day.date)
-                        if currentSelection != null {
-                            // We need to also reload the previously selected
-                            // date so we can REMOVE the selection background.
-                            calendarView.notifyDateChanged(currentSelection)
-                        }
-                    }
-                }
-            }
+
         }
     }
 
