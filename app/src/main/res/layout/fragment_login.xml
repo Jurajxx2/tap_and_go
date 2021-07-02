@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewmodel" type="com.example.tapandgo.screens.login.LoginViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarTheme"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            app:navigationIcon="@drawable/toolbar_back"
+            app:title="Login"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/person_foreground"
+                android:padding="16dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/person_background"/>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input_holder"
+                android:hint="Email"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:boxBackgroundMode="outline"
+                android:background="@drawable/rectangle_rounded_background_light_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_input"
+                    android:paddingStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@={viewmodel.email}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:hint="Password"
+                android:id="@+id/password_input_holder"
+                app:passwordToggleEnabled="true"
+                app:boxBackgroundMode="outline"
+                android:background="@drawable/rectangle_rounded_background_light_grey"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_input"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/transparent"
+                    android:layout_height="match_parent"
+                    android:text="@={viewmodel.password}"
+                    android:paddingStart="16dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_light"
+                android:textColor="@color/dark_font"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="@={viewmodel.keepSignedIn}"
+                android:text="Keep me signed in"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_rounded_background_grey"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="16dp"
+            android:text="Log in"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="end"
+                android:fontFamily="@font/roboto_light"
+                android:textColor="@color/dark_font"
+                android:textSize="12sp"
+                android:text="Don’t have an account?"/>
+
+            <TextView
+                android:id="@+id/button_signup"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:gravity="start"
+                android:fontFamily="@font/roboto_light"
+                android:textSize="12sp"
+                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/strong_grey"
+                android:text="Sign up"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:navigationIcon="@drawable/toolbar_menu"
+                app:title="Car details"/>
+
+            <ImageView
+                android:id="@+id/car_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/splash_hero"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/car_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    tools:text="Škoda Kodiaq"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/car_registration"
+                    tools:text="2C7 2345"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="10sp"
+                    android:background="@drawable/rectangle_rounded_background_light_blue"
+                    android:layout_gravity="center_vertical"
+                    android:paddingVertical="4dp"
+                    android:paddingHorizontal="8dp"
+                    android:textColor="@color/dark_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/car_data"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/selected_location_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="Pick up Location"
+                    android:textColor="@color/dark_font"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="10sp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/selected_location"
+                    tools:text="Jankovcova, Praha 7"
+                    android:layout_marginHorizontal="16dp"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/strong_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:drawableEndCompat="@drawable/edit"
+                    android:drawablePadding="8dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/select_location"
+                android:text="Select location"
+                android:background="@android:color/transparent"
+                android:textColor="@color/main_blue"
+                android:gravity="start|center"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="16dp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/selected_date_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="Selected dates"
+                    android:textColor="@color/dark_font"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="10sp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/selected_date"
+                    tools:text="Nov 11 - Nov 13"
+                    android:layout_marginHorizontal="16dp"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/strong_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:drawableEndCompat="@drawable/edit"
+                    android:drawablePadding="8dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/select_date"
+                android:text="Select date"
+                android:background="@android:color/transparent"
+                android:textColor="@color/main_blue"
+                android:gravity="start|center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/order_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_rounded_background_grey"
+                    android:textColor="@color/strong_grey"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="Book a car"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nvView"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/white"
+            app:menu="@menu/splash_menu" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

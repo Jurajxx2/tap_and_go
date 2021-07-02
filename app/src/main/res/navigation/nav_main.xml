@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.tapandgo.screens.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/openLogin"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/openRegistration"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.tapandgo.screens.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/openCarList"
+            app:destination="@id/carListFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/openRegistration"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.tapandgo.screens.registration.RegistrationFragment"
+        android:label="RegistrationFragment" >
+        <action
+            android:id="@+id/openCarList"
+            app:destination="@id/carListFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/openLogin"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carListFragment"
+        android:name="com.example.tapandgo.screens.car_list.CarListFragment"
+        android:label="CarListFragment" >
+        <action
+            android:id="@+id/openCarDetail"
+            app:destination="@id/carDetailFragment" />
+        <action
+            android:id="@+id/openRidesHistory"
+            app:destination="@id/ridesHistoryFragment" />
+        <action
+            android:id="@+id/openInformation"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carDetailFragment"
+        android:name="com.example.tapandgo.screens.car_detail.CarDetailFragment"
+        android:label="CarDetailFragment" >
+        <action
+            android:id="@+id/openCarList"
+            app:destination="@id/carListFragment" />
+        <argument
+            android:name="cars"
+            app:argType="com.example.tapandgo.model.Cars" />
+        <action
+            android:id="@+id/openPickerDate"
+            app:destination="@id/pickerDateFragment" />
+        <action
+            android:id="@+id/openPickerLocation"
+            app:destination="@id/pickerLocationFragment" />
+        <action
+            android:id="@+id/openInformation"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/openRidesHistory"
+            app:destination="@id/ridesHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickerDateFragment"
+        android:name="com.example.tapandgo.screens.picker_date.PickerDateFragment"
+        android:label="PickerDateFragment" />
+    <fragment
+        android:id="@+id/pickerLocationFragment"
+        android:name="com.example.tapandgo.screens.picker_location.PickerLocationFragment"
+        android:label="PickerLocationFragment" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.tapandgo.screens.information.InformationFragment"
+        android:label="InformationFragment" >
+        <action
+            android:id="@+id/openCarList"
+            app:destination="@id/carListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ridesHistoryFragment"
+        android:name="com.example.tapandgo.screens.rides_history.RidesHistoryFragment"
+        android:label="RidesHistoryFragment" >
+        <action
+            android:id="@+id/openCarList"
+            app:destination="@id/carListFragment" />
+    </fragment>
+</navigation>

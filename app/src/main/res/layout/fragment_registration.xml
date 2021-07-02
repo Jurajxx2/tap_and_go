@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewmodel" type="com.example.tapandgo.screens.registration.RegistrationViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarTheme"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            app:navigationIcon="@drawable/toolbar_back"
+            app:title="Sign Up"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/person_foreground"
+                android:padding="16dp"
+                android:background="@drawable/person_background"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_input_holder"
+                android:hint="Name"
+                android:layout_marginTop="40dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:boxBackgroundMode="outline"
+                android:background="@drawable/rectangle_rounded_background_light_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_input"
+                    android:text="@={viewmodel.name}"
+                    android:paddingStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mail_input_holder"
+                android:hint="Email"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:boxBackgroundMode="outline"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rectangle_rounded_background_light_grey"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mail_input"
+                    android:text="@={viewmodel.email}"
+                    android:paddingStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_input_holder"
+                app:passwordToggleEnabled="true"
+                android:hint="Password"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:boxBackgroundMode="outline"
+                android:background="@drawable/rectangle_rounded_background_light_grey"
+                android:layout_marginTop="16dp"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_input"
+                    android:text="@={viewmodel.password}"
+                    android:paddingStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_rounded_background_grey"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="16dp"
+            android:text="Register"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="end"
+                android:fontFamily="@font/roboto_light"
+                android:textColor="@color/dark_font"
+                android:textSize="12sp"
+                android:text="Already have an account?"/>
+
+            <TextView
+                android:id="@+id/button_login"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:gravity="start"
+                android:fontFamily="@font/roboto_light"
+                android:textSize="12sp"
+                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/strong_grey"
+                android:text="Log In"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
