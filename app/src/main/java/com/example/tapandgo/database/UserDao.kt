@@ -14,8 +14,8 @@ interface UserDao {
     fun loadProfile(): Flow<Profile>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(profile: Profile)
+    suspend fun insert(profile: Profile)
 
     @Query("DELETE FROM user")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

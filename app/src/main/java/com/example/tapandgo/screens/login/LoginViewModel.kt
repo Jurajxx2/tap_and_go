@@ -23,6 +23,7 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
                 userRepository.login(email.value ?: "", password.value ?: "")
                 success.postValue(true)
             } catch (e: Exception) {
+                throw e
                 val errorText = when(e) {
                     is BadRequestException -> "Bad request. Please contact our support or try again later."
                     else -> "Unknown login error. Please, try again later."

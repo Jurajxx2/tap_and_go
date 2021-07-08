@@ -11,13 +11,14 @@ import com.example.tapandgo.screens.car_detail.CarDetailHandler
 import com.example.tapandgo.screens.car_list.CarListHandler
 import com.example.tapandgo.screens.information.InformationHandler
 import com.example.tapandgo.screens.login.LoginHandler
+import com.example.tapandgo.screens.logout.LogoutBottomSheetDialogHandler
 import com.example.tapandgo.screens.picker_date.PickerDateHandler
 import com.example.tapandgo.screens.picker_location.PickerLocationHandler
 import com.example.tapandgo.screens.registration.RegistrationHandler
 import com.example.tapandgo.screens.rides_history.RidesHistoryHandler
 import com.example.tapandgo.screens.splash.SplashHandler
 
-class MainActivity : BaseActivity<ActivityMainBinding>(), SplashHandler, LoginHandler, RegistrationHandler, CarListHandler, CarDetailHandler, PickerDateHandler, PickerLocationHandler, RidesHistoryHandler, InformationHandler{
+class MainActivity : BaseActivity<ActivityMainBinding>(), SplashHandler, LoginHandler, RegistrationHandler, CarListHandler, CarDetailHandler, PickerDateHandler, PickerLocationHandler, RidesHistoryHandler, InformationHandler, LogoutBottomSheetDialogHandler{
 
     override val layout = R.layout.activity_main
 

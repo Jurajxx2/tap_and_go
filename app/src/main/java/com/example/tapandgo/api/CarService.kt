@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface CarService {
 
     @GET("cars")
-    suspend fun getCars(): GetCarsResponse
+    suspend fun getCars(): List<GetCarsResponse.Car>
 }

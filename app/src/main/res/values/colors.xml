@@ -8,8 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="yellow">#E8C135</color>
+    <color name="red">#DB5148</color>
+    <color name="green">#91BE76</color>
     <color name="dark_font">#171C3B</color>
     <color name="main_blue">#5C6BC0</color>
+    <color name="main_blue_10">#1A5C6BC0</color>
+    <color name="main_blue_50">#805C6BC0</color>
     <color name="light_blue">#EFF0F9</color>
     <color name="strong_grey">#686868</color>
     <color name="grey">#CBCBCB</color>

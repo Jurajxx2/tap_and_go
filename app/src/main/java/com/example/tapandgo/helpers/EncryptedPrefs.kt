@@ -30,6 +30,7 @@ object EncryptedPrefs {
     }
 
     fun setToken(token: String) {
+        setLastVerification()
         encryptedPrefs.edit().putString(ACCESS_TOKEN, token).commit()
     }
 
@@ -38,6 +39,7 @@ object EncryptedPrefs {
     }
 
     fun setRefreshToken(token: String) {
+        setLastVerification()
         encryptedPrefs.edit().putString(REFRESH_TOKEN, token).apply()
     }
 

@@ -17,11 +17,11 @@ interface RentalDao {
     fun loadAllByIds(messageIds: IntArray): Flow<List<Rental>>
 
     @Insert
-    fun insertAll(vararg messages: Rental)
+    suspend fun insertAll(vararg messages: Rental)
 
     @Delete
-    fun delete(message: Rental)
+    suspend fun delete(message: Rental)
 
     @Query("DELETE FROM rentals")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

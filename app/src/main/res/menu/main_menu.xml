@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/car_rental"
-            android:title="Car Rental" />
-        <item
-            android:id="@+id/history_rides"
-            android:title="My history rides" />
-        <item
-            android:id="@+id/email_us"
-            android:title="Email Us" />
-        <item
-            android:id="@+id/information"
-            android:title="Information" />
-        <item
-            android:id="@+id/logout"
-            android:title="Log out" />
-    </group>
+    <item
+        android:id="@+id/car_rental"
+        android:title="Car Rental" />
+    <item
+        android:id="@+id/history_rides"
+        android:title="My history rides" />
+    <item
+        android:id="@+id/email_us"
+        android:title="Email Us" />
+    <item
+        android:id="@+id/information"
+        android:title="Information" />
+    <item
+        android:id="@+id/logout"
+        android:title="Log out" />
 </menu>

@@ -14,6 +14,12 @@
         <action
             android:id="@+id/openRegistration"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/openCarList"
+            app:destination="@id/carListFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -25,7 +31,8 @@
             app:launchSingleTop="true" />
         <action
             android:id="@+id/openRegistration"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationFragment"
+            app:popUpTo="@id/splashFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -34,10 +41,14 @@
         <action
             android:id="@+id/openCarList"
             app:destination="@id/carListFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"
             app:launchSingleTop="true" />
         <action
             android:id="@+id/openLogin"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/carListFragment"
@@ -48,10 +59,15 @@
             app:destination="@id/carDetailFragment" />
         <action
             android:id="@+id/openRidesHistory"
-            app:destination="@id/ridesHistoryFragment" />
+            app:destination="@id/ridesHistoryFragment"
+            app:popUpTo="@id/carListFragment" />
         <action
             android:id="@+id/openInformation"
-            app:destination="@id/informationFragment" />
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/carListFragment" />
+        <action
+            android:id="@+id/openLogout"
+            app:destination="@id/logoutBottomSheetDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/carDetailFragment"
@@ -59,10 +75,13 @@
         android:label="CarDetailFragment" >
         <action
             android:id="@+id/openCarList"
-            app:destination="@id/carListFragment" />
+            app:destination="@id/carListFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
         <argument
-            android:name="cars"
-            app:argType="com.example.tapandgo.model.Cars" />
+            android:name="car"
+            app:argType="com.example.tapandgo.model.Car" />
         <action
             android:id="@+id/openPickerDate"
             app:destination="@id/pickerDateFragment" />
@@ -71,10 +90,15 @@
             app:destination="@id/pickerLocationFragment" />
         <action
             android:id="@+id/openInformation"
-            app:destination="@id/informationFragment" />
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/carListFragment" />
         <action
             android:id="@+id/openRidesHistory"
-            app:destination="@id/ridesHistoryFragment" />
+            app:destination="@id/ridesHistoryFragment"
+            app:popUpTo="@id/carListFragment" />
+        <action
+            android:id="@+id/openLogout"
+            app:destination="@id/logoutBottomSheetDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/pickerDateFragment"
@@ -90,7 +114,15 @@
         android:label="InformationFragment" >
         <action
             android:id="@+id/openCarList"
-            app:destination="@id/carListFragment" />
+            app:destination="@id/carListFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/openRidesHistory"
+            app:destination="@id/ridesHistoryFragment"
+            app:popUpTo="@id/carListFragment" />
+        <action
+            android:id="@+id/openLogout"
+            app:destination="@id/logoutBottomSheetDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/ridesHistoryFragment"
@@ -98,6 +130,25 @@
         android:label="RidesHistoryFragment" >
         <action
             android:id="@+id/openCarList"
-            app:destination="@id/carListFragment" />
+            app:destination="@id/carListFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/openInformation"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/carListFragment" />
+        <action
+            android:id="@+id/openLogout"
+            app:destination="@id/logoutBottomSheetDialogFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/logoutBottomSheetDialogFragment"
+        android:name="com.example.tapandgo.screens.logout.LogoutBottomSheetDialogFragment"
+        android:label="LogoutBottomSheetDialogFragment" >
+        <action
+            android:id="@+id/openSplash"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
+    </dialog>
 </navigation>

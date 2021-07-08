@@ -2,7 +2,6 @@ package com.example.tapandgo.utils
 
 import org.threeten.bp.*
 import org.threeten.bp.format.DateTimeFormatter
-import java.time.LocalDate
 import java.util.*
 
 fun stringToDate(date: String): LocalDateTime {
@@ -10,16 +9,17 @@ fun stringToDate(date: String): LocalDateTime {
     return instant.atZone(ZoneId.systemDefault()).toLocalDateTime()
 }
 
-fun dateToString(date: LocalDateTime): String {
-    val formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME
-    return date.format(formatter)
-}
-
-fun dateToLocalDateTime(date: Date): LocalDateTime {
+fun dateToLocalDate(date: Date): LocalDate {
     return Instant.ofEpochMilli(date.time).atZone(ZoneId.systemDefault())
-        .toLocalDateTime()
+        .toLocalDate()
 }
 
-fun localDateToLocalDate(date: LocalDate): org.threeten.bp.LocalDate {
-    return org.threeten.bp.LocalDate.of(date.year, date.monthValue, date.dayOfMonth)
+fun localDateToString(date: LocalDate): String {
+    val dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ssX")
+    return date.atStartOfDay().atOffset(ZoneOffset.UTC).format(dtf)
+}
+
+fun localDateAtTheEndOfDayToString(date: LocalDate): String {
+    val dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ssX")
+    return date.atTime(23,59,59).atOffset(ZoneOffset.UTC).format(dtf)
 }

@@ -5,5 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "rentals")
 class Rental(
-    @PrimaryKey val id: String
+    val from: String,
+    val to: String,
+    val subjectID: Int,
+    val status: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
 )

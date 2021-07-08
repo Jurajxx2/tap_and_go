@@ -3,10 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -14,6 +18,7 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:actionBarSize"
                 app:navigationIcon="@drawable/toolbar_menu"
@@ -65,8 +70,13 @@
                 android:layout_height="wrap_content"/>
 
             <LinearLayout
-                android:id="@+id/selected_location_holder"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/selected_location_holder"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -89,20 +99,21 @@
                     android:textColor="@color/strong_grey"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:drawableEndCompat="@drawable/edit"
                     android:drawablePadding="8dp"/>
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/select_location"
-                android:text="Select location"
-                android:background="@android:color/transparent"
-                android:textColor="@color/main_blue"
-                android:gravity="start|center"
-                android:layout_width="match_parent"
-                android:paddingHorizontal="16dp"
-                android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/select_location"
+                    android:text="Show on map"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/main_blue"
+                    android:gravity="start|center"
+                    android:layout_width="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/selected_date_holder"
@@ -165,6 +176,25 @@
 
         </LinearLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_blue_50"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nvView"
             android:visibility="gone"
@@ -172,7 +202,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:background="@android:color/white"
-            app:menu="@menu/splash_menu" />
+            app:headerLayout="@layout/nav_header_layout_main"
+            app:menu="@menu/main_menu" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

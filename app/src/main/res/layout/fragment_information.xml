@@ -17,7 +17,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:actionBarSize"
                 app:navigationIcon="@drawable/toolbar_menu"
-                app:title="Information"/>
+                app:title="Information"
+                android:id="@+id/toolbar"/>
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -43,7 +44,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:background="@android:color/white"
-            app:menu="@menu/splash_menu" />
+            app:headerLayout="@layout/nav_header_layout_main"
+            app:menu="@menu/main_menu" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

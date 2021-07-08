@@ -1,6 +1,8 @@
 package com.example.tapandgo.model.remote.car
 
-class GetCarsResponse(val data: List<Car>) {
+import com.example.tapandgo.model.Car
+
+class GetCarsResponse {
     data class Car(
         val id: Int,
         val brand: String,
@@ -22,6 +24,25 @@ class GetCarsResponse(val data: List<Car>) {
         data class Location(
             val latitude: Double,
             val longitude: Double
+        )
+
+        fun toLocalCar() = Car(
+            id,
+            brand,
+            model,
+            imageURL,
+            fuel,
+            pricePerDay,
+            currency,
+            year,
+            type,
+            status,
+            groupId,
+            registrationPlate,
+            createdAt,
+            updatedAt,
+            subjectTypeId,
+            com.example.tapandgo.model.Car.Location(location.latitude, location.longitude)
         )
     }
 }
