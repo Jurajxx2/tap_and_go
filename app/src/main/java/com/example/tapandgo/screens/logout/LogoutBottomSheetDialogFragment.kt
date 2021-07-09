@@ -26,7 +26,7 @@ class LogoutBottomSheetDialogFragment: BaseBottomSheetDialogFragment<LogoutBotto
         }
 
         binding.cancel.setOnClickListener {
-            handler.navigate(LogoutBottomSheetDialogFragmentDirections.openSplash())
+            dismiss()
         }
     }
 }

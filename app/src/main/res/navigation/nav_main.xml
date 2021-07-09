@@ -28,6 +28,8 @@
         <action
             android:id="@+id/openCarList"
             app:destination="@id/carListFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"
             app:launchSingleTop="true" />
         <action
             android:id="@+id/openRegistration"

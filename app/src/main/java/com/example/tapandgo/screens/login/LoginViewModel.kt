@@ -3,6 +3,7 @@ package com.example.tapandgo.screens.login
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tapandgo.helpers.EncryptedPrefs
 import com.example.tapandgo.repository.UserRepository
 import com.example.tapandgo.utils.BadRequestException
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +21,7 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
     fun login() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                EncryptedPrefs.setKeepLoggedIn(keepSignedIn.value ?: false)
                 userRepository.login(email.value ?: "", password.value ?: "")
                 success.postValue(true)
             } catch (e: Exception) {

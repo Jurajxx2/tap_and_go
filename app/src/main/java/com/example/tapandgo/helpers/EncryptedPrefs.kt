@@ -13,6 +13,7 @@ object EncryptedPrefs {
     private const val ACCESS_TOKEN = "access_token"
     private const val REFRESH_TOKEN = "refresh_token"
     private const val LAST_REFRESH = "last_refresh"
+    private const val KEEP_SIGNED_IN = "keep_signed_in"
 
     fun initEncryptedPrefs(context: Context) {
         val key = MasterKey.Builder(context)
@@ -27,6 +28,14 @@ object EncryptedPrefs {
                 EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             )
+    }
+
+    fun setKeepLoggedIn(keepLoggedIn: Boolean) {
+        encryptedPrefs.edit().putBoolean(KEEP_SIGNED_IN, keepLoggedIn).apply()
+    }
+
+    fun shouldDeleteData(): Boolean {
+        return !encryptedPrefs.getBoolean(KEEP_SIGNED_IN, false)
     }
 
     fun setToken(token: String) {

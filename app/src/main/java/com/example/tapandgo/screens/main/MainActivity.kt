@@ -2,6 +2,7 @@ package com.example.tapandgo.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import com.example.tapandgo.R
