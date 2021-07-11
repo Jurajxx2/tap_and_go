@@ -57,6 +57,7 @@
                             android:id="@+id/name_input"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
+                            android:inputType="textPersonName"
                             android:background="@drawable/rectangle_rounded_background_light_grey"
                             android:paddingStart="16dp"
                             android:text="@={viewmodel.name}" />
@@ -75,6 +76,7 @@
                             android:id="@+id/mail_input"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
+                            android:inputType="textEmailAddress"
                             android:background="@drawable/rectangle_rounded_background_light_grey"
                             android:paddingStart="16dp"
                             android:text="@={viewmodel.email}" />
@@ -95,6 +97,7 @@
                             android:id="@+id/password_input"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
+                            android:inputType="textPassword"
                             android:background="@drawable/rectangle_rounded_background_light_grey"
                             android:paddingStart="16dp"
                             android:text="@={viewmodel.password}" />

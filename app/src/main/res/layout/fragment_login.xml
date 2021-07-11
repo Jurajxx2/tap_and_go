@@ -58,6 +58,7 @@
                             android:id="@+id/email_input"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
+                            android:inputType="textEmailAddress"
                             android:background="@drawable/rectangle_rounded_background_light_grey"
                             android:paddingStart="16dp"
                             android:text="@={viewmodel.email}" />
@@ -71,12 +72,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="4dp"
+                        app:passwordToggleEnabled="true"
                         android:hint="Password">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/password_input"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
+                            android:inputType="textPassword"
                             android:background="@drawable/rectangle_rounded_background_light_grey"
                             android:paddingStart="16dp"
                             android:text="@={viewmodel.password}" />
