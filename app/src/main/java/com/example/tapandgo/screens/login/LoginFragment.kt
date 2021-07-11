@@ -1,6 +1,7 @@
 package com.example.tapandgo.screens.login
 
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import com.example.tapandgo.R
 import com.example.tapandgo.base.BaseFragment
@@ -14,6 +15,10 @@ class LoginFragment: BaseFragment<LoginViewModel, FragmentLoginBinding, LoginHan
 
     override fun setup() {
         binding.viewmodel = viewModel
+
+        viewModel.loading.observe(this, {
+            binding.loading.visibility = if (it) View.VISIBLE else View.GONE
+        })
 
         viewModel.email.value = "jozko1@mrkvicka.sk"
         viewModel.password.value = "jozkoMrkvicka1"

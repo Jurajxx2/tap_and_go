@@ -10,6 +10,8 @@ import com.example.tapandgo.screens.car_list.CarListFragmentDirections
 import com.example.tapandgo.screens.car_list.SingleCarModel_
 import com.example.tapandgo.screens.information.InformationFragmentDirections
 import com.example.tapandgo.utils.getSendSupportEmailIntent
+import com.example.tapandgo.utils.localDateToFormatted
+import com.example.tapandgo.utils.stringToDate
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RidesHistoryFragment: BaseFragment<RidesHistoryViewModel, FragmentRidesHistoryBinding, RidesHistoryHandler>() {
@@ -33,12 +35,14 @@ class RidesHistoryFragment: BaseFragment<RidesHistoryViewModel, FragmentRidesHis
                     it.forEachIndexed { index, pair ->
                         val rental = pair.first
                         val car = pair.second
+                        val date1 = localDateToFormatted(stringToDate(rental.from).toLocalDate())
+                        val date2 = localDateToFormatted(stringToDate(rental.to).toLocalDate())
                         SingleRentalModel_()
                             .id(index)
                             .image(car.imageURL)
                             .name("${car.brand} ${car.model}")
                             .status(rental.status)
-                            .date("${rental.from} • ${rental.to}")
+                            .date("$date1 • $date2")
                             .addTo(this)
                     }
                 }

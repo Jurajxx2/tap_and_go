@@ -2,6 +2,7 @@ package com.example.tapandgo.screens.registration
 
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import com.example.tapandgo.R
 import com.example.tapandgo.base.BaseFragment
@@ -22,6 +23,10 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel, FragmentRegistra
         viewModel.name.value = "Jožko Mrkvička"
         viewModel.email.value = "jozko1@mrkvicka.sk"
         viewModel.password.value = "jozkoMrkvicka1"
+
+        viewModel.loading.observe(this, {
+            binding.loading.visibility = if (it) View.VISIBLE else View.GONE
+        })
 
         binding.buttonLogin.setOnClickListener {
             handler.navigate(RegistrationFragmentDirections.openLogin())
@@ -46,6 +51,26 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel, FragmentRegistra
 
         binding.toolbar.setNavigationOnClickListener {
             handler.navigateUp()
+        }
+
+        viewModel.name.observe(this, {
+            handleRegisterButton()
+        })
+
+        viewModel.email.observe(this, {
+            handleRegisterButton()
+        })
+
+        viewModel.password.observe(this, {
+            handleRegisterButton()
+        })
+    }
+
+    private fun handleRegisterButton() {
+        if (viewModel.name.value.isNullOrEmpty() || viewModel.email.value.isNullOrEmpty() || viewModel.password.value.isNullOrEmpty()) {
+            binding.buttonRegister.setBackgroundResource(R.drawable.rectangle_rounded_background_grey)
+        } else {
+            binding.buttonRegister.setBackgroundResource(R.drawable.rectangle_rounded_background_blue)
         }
     }
 

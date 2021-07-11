@@ -15,6 +15,7 @@ class RegistrationViewModel(private val userRepository: UserRepository): ViewMod
     val name = MutableLiveData("")
     val email = MutableLiveData("")
     val password = MutableLiveData("")
+    val loading = MutableLiveData(false)
 
     val error = MutableLiveData<String>()
     val success = MutableLiveData<Boolean>(false)
@@ -22,13 +23,16 @@ class RegistrationViewModel(private val userRepository: UserRepository): ViewMod
     fun register() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                loading.postValue(true)
                 val words = name.value?.trim() ?: throw Exception()
                 val wordsList = words.split("\\s+".toRegex())
                 val firstName = wordsList.first()
                 val lastName = wordsList.filterIndexed { index, _ -> index > 0 }.joinToString(" ")
                 userRepository.register(firstName, lastName, email.value ?: "", password.value ?: "")
+                loading.postValue(false)
                 success.postValue(true)
             } catch (e: Exception) {
+                loading.postValue(false)
                 val errorText = when(e) {
                     is ConflictRecordException -> "User with this registration information already exists. Please use login instead."
                     is BadRequestException -> "Bad request. Please contact our support or try again later."

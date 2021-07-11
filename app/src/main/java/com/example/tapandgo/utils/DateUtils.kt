@@ -19,6 +19,11 @@ fun localDateToString(date: LocalDate): String {
     return date.atStartOfDay().atOffset(ZoneOffset.UTC).format(dtf)
 }
 
+fun localDateToFormatted(date: LocalDate): String {
+    val dtf = DateTimeFormatter.ofPattern("dd-MM-uuuu")
+    return date.atStartOfDay().atOffset(ZoneOffset.UTC).format(dtf)
+}
+
 fun localDateAtTheEndOfDayToString(date: LocalDate): String {
     val dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ssX")
     return date.atTime(23,59,59).atOffset(ZoneOffset.UTC).format(dtf)
