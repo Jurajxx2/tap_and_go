@@ -20,9 +20,9 @@ class LoginFragment: BaseFragment<LoginViewModel, FragmentLoginBinding, LoginHan
             binding.loading.visibility = if (it) View.VISIBLE else View.GONE
         })
 
-        viewModel.email.value = "jozko1@mrkvicka.sk"
+        /*viewModel.email.value = "jozko1@mrkvicka.sk"
         viewModel.password.value = "jozkoMrkvicka1"
-        viewModel.keepSignedIn.value = true
+        viewModel.keepSignedIn.value = true*/
 
         binding.buttonLogin.setOnClickListener {
             if (isOK()) {

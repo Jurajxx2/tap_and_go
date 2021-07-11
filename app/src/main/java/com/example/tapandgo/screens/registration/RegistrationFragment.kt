@@ -20,9 +20,9 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel, FragmentRegistra
     override fun setup() {
         binding.viewmodel = viewModel
 
-        viewModel.name.value = "Jožko Mrkvička"
+        /*viewModel.name.value = "Jožko Mrkvička"
         viewModel.email.value = "jozko1@mrkvicka.sk"
-        viewModel.password.value = "jozkoMrkvicka1"
+        viewModel.password.value = "jozkoMrkvicka1"*/
 
         viewModel.loading.observe(this, {
             binding.loading.visibility = if (it) View.VISIBLE else View.GONE
