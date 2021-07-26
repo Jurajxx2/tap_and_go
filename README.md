@@ -4,7 +4,7 @@ minSdkVersion - 23
 targetSdkVersion - 30
 
 <h2>Description</h2>
-App developed as a test project for Skoda auto Digital lab. 
+App developed as a test project. 
 App should provide car renting functionality with car and date selection. 
 User can view his reservations, he can make new reservations, check the vehicle on the map and check the car details.
 
